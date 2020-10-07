@@ -3,7 +3,7 @@
 <br>
 <br>
 
-**This is an unofficial port of Iriun Webcam for Linux. This is targeted for use on Enterprise Linux distros (RHEL, CentOS, Oracle Linux). This is not guaranteed to be fully working**
+**This is an unofficial port repository of Iriun Webcam for Linux. Packages provided here is targeted for use on Enterprise Linux distros (RHEL, CentOS, Oracle Linux). They are never guaranteed to be fully working**
 
 ### [Fedora Copr page](https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/)
 
