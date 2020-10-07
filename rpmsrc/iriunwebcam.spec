@@ -2,9 +2,9 @@
 Name: iriunwebcam
 Summary: Use your phone as a webcam for your computer
 Version: 2.2
-Group: Applications
+Group: Utilities
 License: Restricted
-Release: 2%{?dist}
+Release: 3%{?dist}
 Source0: iriunwebcam-%{version}.tar.gz
 Requires: v4l2loopback, qt5-qtbase, jack-audio-connection-kit
 
@@ -25,21 +25,29 @@ rm -fr $RPM_BUILD_ROOT
 
 %post
 if [ -x "$(command -v firewall-cmd)" ] ; then
-	echo -e "firewalld detected. Modifying firewall rules..."
+	echo -e "\nfirewalld detected. Modifying firewall rules..."
 	echo -e "Opening access for port 4698(UDP) for use by Iriun Webcam..."
 	firewall-cmd --permanent --add-port=4698/udp
+	echo -e "Restarting firewalld service..."
+	systemctl restart firewalld.service
 else
-	echo -e "Opening access for port 4698(UDP) for use by Iriun Webcam..."
+	echo -e "\nOpening access for port 4698(UDP) for use by Iriun Webcam..."
 	iptables -A INPUT -p udp --dport 4698 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+	echo -e "Restarting iptables service..."
+	service iptables restart
 fi
 
 %postun
 if [ -x "$(command -v firewall-cmd)" ] ; then
 	echo -e "Removing firewalld rule..."
 	firewall-cmd --permanent --remove-port=4698/udp
+	echo -e "Restarting firewalld service..."
+	systemctl restart firewalld.service
 else
 	echo -e "Removing iptables rule..."
 	iptables -D INPUT -p udp --dport 4698 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+	echo -e "Restarting iptables service..."
+        service iptables restart
 fi
 	
 %files
