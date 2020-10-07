@@ -56,14 +56,14 @@ v4l2loopback
 
 For EPEL 7:
 ~~~
-\# Run this as root
+# Run this as root
 dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/repo/epel-7/rmnscnce-iriun-webcam_el-epel-7.repo
 dnf install iriunwebcam
 ~~~
 
 For EPEL 8:
 ~~~
-\# Run this as root
+# Run this as root
 dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/repo/epel-8/rmnscnce-iriun-webcam_el-epel-8.repo
 dnf install iriunwebcam
 ~~~

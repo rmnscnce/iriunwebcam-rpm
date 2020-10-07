@@ -6,7 +6,7 @@ Group: Applications
 License: Restricted
 Release: 1
 Source0: iriunwebcam-%{version}.tar.gz
-Requires: v4l2loopback, v4l2loopback-dkms, qt5-qtbase, jack-audio-connection-kit
+Requires: v4l2loopback, qt5-qtbase, jack-audio-connection-kit
 
 %description
 iriunwebcam
