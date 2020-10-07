@@ -2,7 +2,7 @@
 
 Name:     v4l2loopback
 Version:  0.12.5
-Release:  iriun.1%{?dist}
+Release:  iriun.2%{?dist}
 Summary:  Tools to create Video4Linux loopback recording devices
 Group:    System Environment/Kernel
 License:  GPLv2
