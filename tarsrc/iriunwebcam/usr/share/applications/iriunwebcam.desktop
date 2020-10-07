@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Icon=iriunwebcam
+Name=Iriun Webcam
+Exec=/usr/local/bin/iriunwebcam
+Categories=Utility
+
