@@ -25,9 +25,10 @@ dnf copr enable rmnscnce/iriun-webcam_el
 sudo dnf install iriunwebcam
 ~~~
 
-## Repo package availability
+## Copr repo package availability
 Package | CentOS Stream | EPEL 6 | EPEL 7 | EPEL 8
 --------|---------------|--------|--------|--------
 `iriunwebcam` | aarch64, x86\_64 | i386, x86\_64 | aarch64, x86\_64 | aarch64, x86\_64
 `v4l-utils` | aarch64, x86\_64 | N/A | N/A | aarch64, x86\_64
 `v4l2loopback` | aarch64, x86\_64 | i386, x86\_64 | aarch64, x86\_64 | aarch64, x86\_64
+##### ※ Package `v4l-utils` is officially available on the CentOS 7 and EPEL 6 repo
