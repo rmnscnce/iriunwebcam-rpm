@@ -33,11 +33,12 @@ Requires: dkms >= 2.2
 Provides: %{name}-kmod = %{version}
 
 %description dkms
-This package contains the module source and DKMS configuration to build thev
+This package contains the module source and DKMS configuration to build the
 v4l2loopback kernel module.
 
 %post dkms
-%{_prefix}/lib/dkms/common.postinst %{name}
+mv %{_usrsrc}/%{name} %{_usrsrc}/%{name}-%{version}
+%{_prefix}/lib/dkms/common.postinst %{name} %{version}
 
 %preun dkms
 if [ $1 -ne 1 ]; then
