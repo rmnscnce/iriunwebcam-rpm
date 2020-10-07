@@ -53,7 +53,7 @@ fi
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p "${RPM_BUILD_ROOT}%{_usrsrc}"
-cp -r ../%{name}-%{version} "${RPM_BUILD_ROOT}%{_usrsrc}/"
+cp -r ../%{name} "${RPM_BUILD_ROOT}%{_usrsrc}/"
 
 make install-utils install-man DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
 
