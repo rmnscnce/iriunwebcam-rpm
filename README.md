@@ -24,3 +24,10 @@ Use your phone's camera as a wireless webcam in your PC Install Webcam for Linux
 dnf copr enable rmnscnce/iriun-webcam_el
 sudo dnf install iriunwebcam
 ~~~
+
+## Repo package availability
+Package | CentOS Stream | EPEL 6 | EPEL 7 | EPEL 8
+--------|---------------|--------|--------|--------
+`iriunwebcam` | aarch64, x86\_64 | i386, x86\_64 | aarch64, x86\_64 | aarch64, x86\_64
+`v4l-utils` | aarch64, x86\_64 | N/A | N/A | aarch64, x86\_64
+`v4l2loopback` | aarch64, x86\_64 | i386, x86\_64 | aarch64, x86\_64 | aarch64, x86\_64
