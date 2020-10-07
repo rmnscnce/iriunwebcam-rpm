@@ -63,7 +63,7 @@ make install-utils install-man DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDI
 %{_mandir}/man1/*.1*
 
 %files dkms
-%{_usrsrc}/%{name}-%{version}
+%{_usrsrc}/%{name}
 
 %changelog
 * Tue May 12 2020 Erwan Le Pennec <lepennec@gmail.com> - 0.12.5-1
