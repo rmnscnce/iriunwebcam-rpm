@@ -4,7 +4,7 @@ Summary: Use your phone as a webcam for your computer
 Version: 2.2
 Group: Applications
 License: Restricted
-Release: 1.${dist}
+Release: 1.%{dist}
 Source0: iriunwebcam-%{version}.tar.gz
 Requires: v4l2loopback, qt5-qtbase, jack-audio-connection-kit
 
