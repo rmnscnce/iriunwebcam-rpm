@@ -1,0 +1,61 @@
+From dc0b263d687055e4b58323c5a1ba98222a19c518 Mon Sep 17 00:00:00 2001
+From: Jaroslav Kysela <perex@perex.cz>
+Date: Tue, 31 Mar 2020 13:32:46 +0200
+Subject: [PATCH 2/2] alsa sink/source: fix the mixer initialization
+
+- remove duplicate mixer initialization in sink
+- use the similar mixer initialization for source like for sink
+
+Signed-off-by: Jaroslav Kysela <perex@perex.cz>
+---
+ src/modules/alsa/alsa-sink.c   |  2 --
+ src/modules/alsa/alsa-source.c | 12 +++++++-----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/modules/alsa/alsa-sink.c b/src/modules/alsa/alsa-sink.c
+index c7754b60b..a8792ed33 100644
+--- a/src/modules/alsa/alsa-sink.c
++++ b/src/modules/alsa/alsa-sink.c
+@@ -2509,8 +2509,6 @@ pa_sink *pa_alsa_sink_new(pa_module *m, pa_modargs *ma, const char*driver, pa_ca
+     /* ALSA might tweak the sample spec, so recalculate the frame size */
+     frame_size = pa_frame_size(&ss);
+ 
+-    find_mixer(u, mapping, pa_modargs_get_value(ma, "control", NULL), ignore_dB);
+-
+     pa_sink_new_data_init(&data);
+     data.driver = driver;
+     data.module = m;
+diff --git a/src/modules/alsa/alsa-source.c b/src/modules/alsa/alsa-source.c
+index b12deef76..721cda2db 100644
+--- a/src/modules/alsa/alsa-source.c
++++ b/src/modules/alsa/alsa-source.c
+@@ -2196,8 +2196,6 @@ pa_source *pa_alsa_source_new(pa_module *m, pa_modargs *ma, const char*driver, p
+     /* ALSA might tweak the sample spec, so recalculate the frame size */
+     frame_size = pa_frame_size(&ss);
+ 
+-    find_mixer(u, mapping, pa_modargs_get_value(ma, "control", NULL), ignore_dB);
+-
+     pa_source_new_data_init(&data);
+     data.driver = driver;
+     data.module = m;
+@@ -2252,10 +2250,14 @@ pa_source *pa_alsa_source_new(pa_module *m, pa_modargs *ma, const char*driver, p
+         goto fail;
+     }
+ 
+-    if (u->ucm_context)
++    if (u->ucm_context) {
+         pa_alsa_ucm_add_ports(&data.ports, data.proplist, u->ucm_context, false, card, u->pcm_handle, ignore_dB);
+-    else if (u->mixer_path_set)
+-        pa_alsa_add_ports(&data, u->mixer_path_set, card);
++        find_mixer(u, mapping, pa_modargs_get_value(ma, "control", NULL), ignore_dB);
++    } else {
++        find_mixer(u, mapping, pa_modargs_get_value(ma, "control", NULL), ignore_dB);
++        if (u->mixer_path_set)
++            pa_alsa_add_ports(&data, u->mixer_path_set, card);
++    }
+ 
+     u->source = pa_source_new(m->core, &data, PA_SOURCE_HARDWARE|PA_SOURCE_LATENCY|(u->use_tsched ? PA_SOURCE_DYNAMIC_LATENCY : 0));
+     volume_is_set = data.volume_is_set;
+-- 
+2.25.1
+
