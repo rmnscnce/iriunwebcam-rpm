@@ -37,7 +37,7 @@ This package contains the module source and DKMS configuration to build thev
 v4l2loopback kernel module.
 
 %post dkms
-%{_prefix}/lib/dkms/common.postinst %{name} %{version}
+%{_prefix}/lib/dkms/common.postinst %{name}
 
 %preun dkms
 if [ $1 -ne 1 ]; then
