@@ -4,7 +4,7 @@ Summary: Use your phone as a webcam for your computer
 Version: 2.2
 Group: Applications
 License: Restricted
-Release: 1%{?dist}
+Release: 2%{?dist}
 Source0: iriunwebcam-%{version}.tar.gz
 Requires: v4l2loopback, qt5-qtbase, jack-audio-connection-kit
 
@@ -23,6 +23,25 @@ cp -r . $RPM_BUILD_ROOT/
 %clean
 rm -fr $RPM_BUILD_ROOT
 
+%post
+if [ -x "$(command -v firewall-cmd)" ] ; then
+	echo -e "firewalld detected. Modifying firewall rules..."
+	echo -e "Opening access for port 4698(UDP) for use by Iriun Webcam..."
+	firewall-cmd --permanent --add-port=4698/udp
+else
+	echo -e "Opening access for port 4698(UDP) for use by Iriun Webcam..."
+	iptables -A INPUT -p udp --dport 4698 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+fi
+
+%postun
+if [ -x "$(command -v firewall-cmd)" ] ; then
+	echo -e "Removing firewalld rule..."
+	firewall-cmd --permanent --remove-port=4698/udp
+else
+	echo -e "Removing iptables rule..."
+	iptables -D INPUT -p udp --dport 4698 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+fi
+	
 %files
 %attr(-, root, root) "/etc/modprobe.d/iriunwebcam-options.conf"
 %attr(-, root, root) "/etc/modules-load.d/iriunwebcam.conf"
