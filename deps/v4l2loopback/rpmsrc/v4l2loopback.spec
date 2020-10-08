@@ -2,7 +2,7 @@
 
 Name:     v4l2loopback
 Version:  0.12.5
-Release:  iriun.4%{?dist}
+Release:  iriun.5%{?dist}
 Summary:  Tools to create Video4Linux loopback recording devices
 Group:    System Environment/Kernel
 License:  GPLv2
@@ -64,10 +64,8 @@ fi
 %{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p "${RPM_BUILD_ROOT}%{_usrsrc}"
 cp -r ../%{name} "${RPM_BUILD_ROOT}%{_usrsrc}/"
-make install-man DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
-
-%install utils
 make install-utils DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
+make install-man DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
 
 %files
 %doc AUTHORS NEWS README.md
