@@ -10,11 +10,11 @@
 ---
 
 ##### Status for `iriunwebcam`:
-<a href="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/iriunwebcam/"><img src="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/iriunwebcam/status_image/last_build.png"></a>
-##### Status for `v4l-utils`:
-<a href="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/iriunwebcam/"><img src="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l-utils/status_image/last_build.png"></a>
-##### Status for `v4l2loopback`:
 <a href="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/iriunwebcam/"><img src="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l2loopback/status_image/last_build.png"></a>
+##### Status for `v4l-utils`:
+<a href="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l-utils/"><img src="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l-utils/status_image/last_build.png"></a>
+##### Status for `v4l2loopback`:
+<a href="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l2loopback/"><img src="https://copr.fedorainfracloud.org/coprs/rmnscnce/iriun-webcam_el/package/v4l2loopback/status_image/last_build.png"></a>
 
 ## Description
 Use your phone's camera as a wireless webcam in your PC Install Webcam for Linux, download Iriun Webcam app to your mobile phone and start using the phone with your favourite video applications.
