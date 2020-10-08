@@ -64,14 +64,19 @@ fi
 %{__rm} -rf $RPM_BUILD_ROOT
 mkdir -p "${RPM_BUILD_ROOT}%{_usrsrc}"
 cp -r ../%{name} "${RPM_BUILD_ROOT}%{_usrsrc}/"
-
-make install-utils DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
 make install-man DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
+
+%install utils
+make install-utils DESTDIR="$RPM_BUILD_ROOT" PREFIX=%{_prefix} BINDIR=%{_bindir} MANDIR=%{_mandir}
 
 %files
 %doc AUTHORS NEWS README.md
 %attr(0755,root,root) %{_bindir}/%{name}*
 %attr(0644,root,root) %{_mandir}/man1/*.1*
+
+%files utils
+%attr(0755,root,root) %{_bindir}/v4l2loopback-ctl
+%attr(0644,root,root) %{_mandir}/man1/v4l2loopback-ctl.1.gz
 
 %files dkms
 %{_usrsrc}/%{name}
