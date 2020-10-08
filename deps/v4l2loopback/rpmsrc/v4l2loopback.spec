@@ -34,6 +34,9 @@ Recommends: gstreamer:/usr/bin/gst-launch-1.0
 Supplements: kmod(v4l2loopback.ko)
 BuildArch: noarch
 
+%description utils
+v4l2loopback-ctl for controlling FPS, placeholder image and image format.
+
 %package dkms
 Summary:  Kernel module to create Video4Linux loopback devices (DKMS)
 Requires: dkms >= 2.2
