@@ -5,7 +5,7 @@ Version: 2.2
 Group: Utilities
 License: Restricted
 Release: 4%{?dist}
-Source0: iriunwebcam-%{version}.tar.gz
+Source0: iriunwebcam.tar.gz
 Requires: v4l2loopback, v4l2loopback-utils, qt5-qtbase, jack-audio-connection-kit
 
 %description
