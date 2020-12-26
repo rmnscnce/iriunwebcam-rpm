@@ -1,10 +1,10 @@
 %define debug_package %{nil}
 Name: iriunwebcam
 Summary: Use your phone as a webcam for your computer
-Version: 2.2
+Version: 2.3
 Group: Utilities
 License: Restricted
-Release: 4%{?dist}
+Release: 1%{?dist}
 Source0: iriunwebcam.tar.gz
 Requires: v4l2loopback, v4l2loopback-utils, qt5-qtbase, jack-audio-connection-kit
 
